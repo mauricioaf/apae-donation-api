@@ -1,7 +1,8 @@
 # apae-donation-api
 
-#Install
+### `Install`
+
 yarn install
 
-#Run
+### `Run`
 yarn start
