@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var DonorModel = require('../models/donor');
 
 const donorMock = [
     {
@@ -77,7 +78,12 @@ const donorMock = [
 ];
 
 router.get('/', function (req, res, next) {
-    res.send(donorMock);
+    console.log('Finding Donors...');
+    DonorModel.find(function (err, donorList) {
+        if (err) return console.error(err);
+        console.log('Result', donorList);
+        res.send(donorMock);
+    });
 });
 
 module.exports = router;
